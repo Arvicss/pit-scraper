@@ -1,0 +1,15 @@
+{
+	"extends": "@tsconfig/node22/tsconfig.json",
+	"compilerOptions": {
+		"outDir": "build",
+		"allowJs": true,
+		"sourceMap": true,
+		"paths": {
+			"@/*": [
+				"./src/*"
+			]
+		}
+	},
+	"include": ["src/**/*"],
+	"exclude": ["node_modules"]
+}

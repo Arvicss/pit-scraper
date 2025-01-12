@@ -1,0 +1,21 @@
+{
+	"preset": "ts-jest",
+	"verbose": true,
+	"testEnvironment": "node",
+	"transform": {
+		"^.+\\.ts$": "ts-jest",
+		"^.+\\.js$": "babel-jest"
+	},
+	"moduleNameMapper": {
+		"^@/(.*)$": "<rootDir>/src/$1"
+	},
+	"testMatch": [
+		"<rootDir>/**/*.(spec|test).js?(x)",
+		"<rootDir>/**/*.(spec|test).ts?(x)"
+	],
+	"testPathIgnorePatterns": [
+		"<rootDir>/build/"
+	],
+	"moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+	"testTimeout": 30000
+}

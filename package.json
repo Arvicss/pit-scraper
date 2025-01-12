@@ -1,0 +1,35 @@
+{
+  "name": "pit-scraper",
+  "version": "1.0.0",
+  "description": "A tool to scrape and track Formula 1 race results from formula1.com",
+  "scripts": {
+    "build": "tsc",
+    "check": "tsc --noEmit",
+    "test": "jest --config .jestrc.json --runInBand",
+    "dev": "tsx",
+    "format": "biome format --write",
+    "lint": "biome lint"
+  },
+  "author": "Arvyx Ramos (https://github.com/Arvicss)",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cheerio": "^1.0.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.26.0",
+    "@biomejs/biome": "1.8.3",
+    "@faker-js/faker": "^9.2.0",
+    "@tsconfig/node22": "^22.0.0",
+    "@types/cheerio": "^0.22.35",
+    "@types/jest": "^29.5.13",
+    "@types/lodash": "^4.17.14",
+    "@types/node": "^20",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.2"
+  }
+}
