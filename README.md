@@ -7,8 +7,6 @@ This project is a web scraping tool designed to fetch Formula 1 race results fro
 - Retrieves full race results including every Grand Prix and session (e.g., qualifying, race).
 - Allows input of a specific year to fetch results for that season.
 
-Here’s an improved version of your installation message with clearer instructions and consistent formatting:
-
 ---
 
 ## Installation
