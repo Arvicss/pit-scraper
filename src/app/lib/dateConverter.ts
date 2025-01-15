@@ -1,10 +1,7 @@
-export interface EventDate {
-	start: Date;
-	end: Date;
-}
+import type { IEventDate } from "@/app/types";
 
 export class DateConverter {
-	public static convertEventDate(eventDate: string): EventDate {
+	public static convertEventDate(eventDate: string): IEventDate {
 		const cleanedDate = eventDate.replaceAll("- ", "").split(" ");
 		const startDate = DateConverter._convertToDate(
 			cleanedDate[cleanedDate.length - 1],

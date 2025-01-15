@@ -5,7 +5,7 @@
 	},
 	"linter": {
 		"enabled": true,
-		"ignore": ["/build"],
+		"ignore": ["/dist"],
 		"rules": {
 			"recommended": true,
 			"complexity": {

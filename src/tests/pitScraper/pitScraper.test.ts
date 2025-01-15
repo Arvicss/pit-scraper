@@ -39,7 +39,7 @@ describe('PitScraper', () => {
       expect(grandPrix.eventDate!.end).not.toBeNull();
 
       for (const session of grandPrix.sessions) {
-        expect(session.sessionName.length).toBeGreaterThan(0);
+        expect(session.name.length).toBeGreaterThan(0);
         expect(session.result.length).toBeGreaterThan(0);
 
         for (const result of session.result) {

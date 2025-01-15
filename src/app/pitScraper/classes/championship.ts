@@ -1,19 +1,11 @@
-import type { GrandPrix } from "@/app/pitScraper/classes/grandPrix";
+import type { IChampionship, IGrandPrix } from "@/app";
 
-export class Championship {
-  private readonly _year: number;
-  private readonly _grandPrixes: GrandPrix[];
+export class Championship implements IChampionship {
+  public readonly year: number;
+  public readonly grandPrixes: IGrandPrix[];
 
-  public constructor(year: number, grandPrixes: GrandPrix[]) {
-    this._year = year;
-    this._grandPrixes = grandPrixes;
-  }
-
-  public get year(): number {
-    return this._year;
-  }
-
-  public get grandPrixes(): GrandPrix[] {
-    return this._grandPrixes;
+  public constructor(year: number, grandPrixes: IGrandPrix[]) {
+    this.year = year;
+    this.grandPrixes = grandPrixes;
   }
 }

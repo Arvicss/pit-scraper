@@ -1,9 +1,10 @@
 import { HTMLService } from "@/app/lib/HTMLService";
-import { DateConverter, type EventDate } from "@/app/lib/dateConverter";
+import { DateConverter } from "@/app/lib/dateConverter";
 import { Championship } from "@/app/pitScraper/classes/championship";
 import { GrandPrix } from "@/app/pitScraper/classes/grandPrix";
 import { Session } from "@/app/pitScraper/classes/session";
 import { type GrandPrixPageLink, ResultLinkService } from "@/app/pitScraper/service/resultLinkService";
+import type { IChampionship, IEventDate, IGrandPrix, ISession } from "@/app/types";
 import { load } from "cheerio";
 import lodash from "lodash";
 
@@ -22,7 +23,7 @@ export class PitScraper {
     this._htmlService = htmlService;
   }
 
-  public async getChampionshipResultByYear(year: number): Promise<Championship | null> {
+  public async getChampionshipResultByYear(year: number): Promise<IChampionship | null> {
     const championshipResultPageLink = await this._resultLinkService.getChampionshipResultsLinks(year);
     if (!championshipResultPageLink) {
       return null;
@@ -49,7 +50,7 @@ export class PitScraper {
    * GrandPrix
    * */
 
-  private async _getGrandPrixResult(grandPrixPageLink: GrandPrixPageLink): Promise<GrandPrix> {
+  private async _getGrandPrixResult(grandPrixPageLink: GrandPrixPageLink): Promise<IGrandPrix> {
     const html = await this._htmlService.getHTML(grandPrixPageLink.baseGrandPrixLink);
     const circuitName = this._scrapeCircuit(html);
     const eventName = this._scrapeEventName(html);
@@ -67,11 +68,11 @@ export class PitScraper {
     });
   }
 
-  private _scrapeEventDate(html: string): EventDate | null{
+  private _scrapeEventDate(html: string): IEventDate {
     const $ = load(html);
     const eventDate = $(this._GRAND_PRIX_EVENT_DETAILS_SELECTOR).first().text();
     if (!eventDate) {
-      return null;
+      throw new Error("Failed to get event date");
     }
 
     return DateConverter.convertEventDate(eventDate);
@@ -101,7 +102,7 @@ export class PitScraper {
    * Session
    * */
 
-  private async _getSessionResult(grandPrixSessionPageLink: string): Promise<Session> {
+  private async _getSessionResult(grandPrixSessionPageLink: string): Promise<ISession> {
     const html = await this._htmlService.getHTML(grandPrixSessionPageLink);
     const sessionName = this._scrapeSessionName(html);
     const sessionResult = this._scrapeSessionResult(html);

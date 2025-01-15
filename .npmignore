@@ -1,0 +1,11 @@
+/src
+/node_modules
+/build
+/.git
+/.idea
+
+.jestrc.json
+babel.config.json
+biome.json
+tsconfig.json
+tsup.config.ts

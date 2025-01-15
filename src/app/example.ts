@@ -16,7 +16,7 @@ import { PitScraper } from "@/app/pitScraper/pitScraper";
   console.log("\nRace Winners: ")
   const result: { grandPrix: string, winner: string }[] = [];
   for (const grandPrix of championshipResult!.grandPrixes) {
-    const raceSession = grandPrix.sessions.filter((session) => session.sessionName === "RACE RESULT");
+    const raceSession = grandPrix.sessions.filter((session) => session.name === "RACE RESULT");
     result.push({
       grandPrix: grandPrix.name,
       winner: raceSession[0]?.result[0]['driver']

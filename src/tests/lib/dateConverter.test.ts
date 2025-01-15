@@ -1,4 +1,4 @@
-import { DateConverter, type EventDate } from "@/app/lib/dateConverter";
+import { DateConverter, type IEventDate } from "@/app/lib/dateConverter";
 
 describe('DateConverter', () => {
   it('should convert event date that has different day and month', () => {
